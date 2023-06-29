@@ -90,12 +90,12 @@ DATABASES = {
 }
 '''
 
-'''
+
 DATABASES = {
     'default': dj_database_url.config()
 }
-'''
 
+'''
 # Verifique se a variável de ambiente DATABASE_URL está definida
 if 'DATABASE_URL' in os.environ:
     # Use dj_database_url para extrair as configurações do banco de dados da URL
@@ -114,7 +114,7 @@ else:
             'PORT': '5432',
         }
     }
-
+'''
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
