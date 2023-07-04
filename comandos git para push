@@ -1,0 +1,20 @@
+
+
+
+
+token de acesso:
+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
+
+git pull --rebase origin main
+git push origin main
+a senha é o token
+
+
+git config --global --unset user.password
+
+git config --global --unset user.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
+
+
+
+
+
