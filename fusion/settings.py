@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=s^94*7651vxaf1#59*kewdi&s_y8d1j^3mbwtu4d0#jkd_cr('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['projeto-django-app.herokuapp.com']
 
 
 # Application definition
@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'fusion.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -92,13 +92,13 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
-
 '''
+
+
 DATABASES = {
     'default': dj_database_url.config()
 }
-'''
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -140,9 +140,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #email de teste console backend
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-'''
+
 #Email Produção
 
 EMAIL_HOST = 'localhost'
@@ -151,7 +151,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True # Se for usar segurança, senão é False
 EMAIL_HOST_PASSWORD = 'fusion'
 DEFAULT_FROM_EMAIL = 'contato@fusion.com.br'
-'''
+
 
 
 # Default primary key field type
