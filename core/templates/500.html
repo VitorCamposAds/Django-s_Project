@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
-
-
 {% block content %}
 
 <!-- Hero Area Start -->
@@ -10,10 +9,10 @@
     <div class="row">
       <div class="col-lg-7 col-md-12 col-sm-12 col-xs-12">
         <div class="contents">
-          <h2 class="head-title">500<br>ERRO DE PROCESSAMENTO</h2>
-          <p>INFELIZMENTE NÃO FOI POSSÍVEL PROCESSAR A REQUISIÇÃO.</p>
+          <h2 class="head-title">500<br>{% trans 'ERRO DE PROCESSAMENTO' %}</h2>
+          <p>{% trans 'INFELIZMENTE NÃO FOI POSSÍVEL PROCESSAR A REQUISIÇÃO.' %}</p>
           <div class="header-button">
-            <a href="{% url 'index' %}" class="btn btn-common">Volte para a página principal</a>
+            <a href="{% url 'index' %}" class="btn btn-common">{% trans 'Volte para a página principal' %}</a>
           </div>
         </div>
       </div>

@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load static %}
     <section id="pricing" class="section-padding">
       <div class="container">
@@ -19,9 +20,9 @@
               </div>
               <ul class="description">
                 <li>1 user</li>
-                <li>10 GB storage</li>
+                <li>{% trans '10 GB armazenamento' %}</li>
                 <li>Email support</li>
-                <li>Lifetime updates</li>
+                <li>{% trans 'Atualizações' %}</li>
               </ul>
               <button class="btn btn-common">Buy Now</button>
             </div>
@@ -38,10 +39,10 @@
                 <h3>Plus</h3>
               </div>
               <ul class="description">
-                <li>10 user</li>
-                <li>30 GB storage</li>
-                <li>Priority email support</li>
-                <li>Lifetime updates</li>
+                <li>{% trans '10 usuários' %}</li>
+                <li>{% trans '30 GB de armazenamento' %}</li>
+                <li>{% trans 'Prioridade no suporte' %}</li>
+                <li>{% trans 'Atualizações em tempo real' %}}/li>
               </ul>
               <button class="btn btn-common">Buy Now</button>
            </div>
@@ -58,10 +59,10 @@
                 <h3>Premium</h3>
               </div>
               <ul class="description">
-                <li>Unlimited users</li>
-                <li>Unlimited storage</li>
-                <li>24/7 support</li>
-                <li>Lifetime updates</li>
+                <li>{% trans 'Usuários Ilimitados' %}</li>
+                <li>{% trans 'Armazenamento Ilimitado' %}</li>
+                <li>{% trans 'Suporte 24/7' %}</li>
+                <li>{% trans 'Atualizações disponíveis 24/7' %}
               </ul>
               <button class="btn btn-common">Buy Now</button>
             </div>

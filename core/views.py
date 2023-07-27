@@ -4,6 +4,7 @@ import random
 from .forms import ContatoForm
 from django.urls import reverse_lazy
 from django.contrib import messages
+from django.utils.translation import gettext as _
 
 def obter_features():
     all_features = Features.objects.all()
@@ -39,17 +40,9 @@ class IndexView(FormView):
 
     def form_valid(self, form, *args, **kwargs):
         form.send_mail()
-        messages.success(self.request, 'Email enviado com sucesso!')
+        messages.success(self.request, _('Email enviado com sucesso!'))
         return super().form_valid(form, *args, **kwargs)
 
     def form_invalid(self, form, *args, **kwargs):
-        messages.error(self.request, 'Erro ao enviar o e-mail')
+        messages.error(self.request, _('Erro ao enviar o e-mail'))
         return super(IndexView, self).form_invalid(form, *args, **kwargs)
-    
-
-
-
-
-
-
-

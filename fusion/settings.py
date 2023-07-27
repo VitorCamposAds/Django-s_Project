@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=s^94*7651vxaf1#59*kewdi&s_y8d1j^3mbwtu4d0#jkd_cr('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -80,7 +81,7 @@ WSGI_APPLICATION = 'fusion.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-'''
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -91,32 +92,12 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+
 '''
-
-
 DATABASES = {
     'default': dj_database_url.config()
 }
-
-'''
-# Verifique se a variável de ambiente DATABASE_URL está definida
-if 'DATABASE_URL' in os.environ:
-    # Use dj_database_url para extrair as configurações do banco de dados da URL
-    DATABASES = {
-        'default': dj_database_url.config()
-    }
-else:
-    # Caso contrário, defina manualmente as configurações do banco de dados
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': 'fusion',
-            'USER': 'vitor',
-            'PASSWORD': '64954382',
-            'HOST': 'localhost',
-            'PORT': '5432',
-        }
-    }
 '''
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -159,7 +140,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #email de teste console backend
 
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 '''
 #Email Produção
@@ -179,3 +160,7 @@ DEFAULT_FROM_EMAIL = 'contato@fusion.com.br'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGOUT_REDIRECT_URL = 'index'
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
