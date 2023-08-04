@@ -3,7 +3,7 @@
 
 
 token de acesso:
-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
+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
 
 git pull --rebase origin main
 git push origin main
