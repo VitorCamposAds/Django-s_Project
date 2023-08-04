@@ -9,11 +9,16 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+# core/settings.py
 
 from pathlib import Path
 import os
 import dj_static
 import dj_database_url
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -48,8 +53,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'django.middleware.staticfiles.StaticFilesMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -100,16 +105,25 @@ DATABASES = {
     'default': dj_database_url.config()
 }
 '''
+'''
+#Render Postgree Database
 
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('HEROKU_POSTGRESQL_JADE_URL', 'sqlite:///db.sqlite3'))
+    'default': dj_database_url.parse(env('DATABASE_URL'))
+}
+'''
+#Render Postgres Database
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'django_wezw',
+        'USER': 'django_wezw_user',
+        'PASSWORD': 'BNdj9LgO2yZnCTRL2MRlX3Wwht3VGKgZ',
+        'HOST': 'dpg-cj6gglme546c73ap5j2g-a.oregon-postgres.render.com',
+        'PORT': '5432',
+    }
 }
 
-'''
-DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('HEROKU_POSTGRESQL_JADE_URL'))
-}
-'''
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
