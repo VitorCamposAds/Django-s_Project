@@ -3,6 +3,13 @@ from .models import Cargo, Servico, Funcionario
 
 from .models import Features
 
+'''
+class AdminArea(admin.AdminSite):
+    site_header = 'Projeto Vitor'
+
+projeto_vitor = AdminArea(name='Administração Projeto Vitor')
+'''
+
 @admin.register(Cargo)
 class CargoAdmin(admin.ModelAdmin):
     list_display = ('cargo', 'ativo', 'modificado')
@@ -18,6 +25,3 @@ class FuncionarioAdmin(admin.ModelAdmin):
 @admin.register(Features)
 class FeaturesAdmin(admin.ModelAdmin):
     list_display = ('feature', 'descricao', 'icone')
-
-
-

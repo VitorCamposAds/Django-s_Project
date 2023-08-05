@@ -100,11 +100,11 @@ DATABASES = {
 }
 '''
 
-'''
+
 DATABASES = {
     'default': dj_database_url.config()
 }
-'''
+
 '''
 #Render Postgree Database
 
@@ -113,7 +113,7 @@ DATABASES = {
 }
 '''
 
-
+'''
 #Render Postgres Database
 DATABASES = {
     'default': {
@@ -125,7 +125,7 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
+'''
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -167,9 +167,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #email de teste console backend
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-'''
+
 #Email Produção
 
 EMAIL_HOST = 'localhost'
@@ -178,7 +178,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True # Se for usar segurança, senão é False
 EMAIL_HOST_PASSWORD = 'fusion'
 DEFAULT_FROM_EMAIL = 'contato@fusion.com.br'
-'''
+
 
 
 # Default primary key field type

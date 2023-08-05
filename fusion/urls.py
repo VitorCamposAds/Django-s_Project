@@ -22,9 +22,22 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.views.generic.base import TemplateView
 
+'''
+urlpatterns =[
+    path('admin/', projeto_vitor.urls),
+    path('', include('core.urls')),
+    path('', TemplateView.as_view(template_name='index.html'), name='index'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+'''
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
     path('', TemplateView.as_view(template_name='index.html'), name='index')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+
+
+admin.site.index_title = 'Projeto Vitor'
+admin.site.site_header = 'Administração do Projeto Django-Vitor'
+admin.site.site_title = 'Administração Site'
